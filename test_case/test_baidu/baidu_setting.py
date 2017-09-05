@@ -1,4 +1,6 @@
-from base import Base
+import sys
+sys.path.append('../../')
+from base.base import Base
 import unittest
 from selenium import webdriver
 from time import sleep
@@ -6,8 +8,8 @@ from time import sleep
 class BaiduSet(unittest.TestCase):
 
 	def setUp(self):
-		self.driver=webdriver.Chrome()
-		self.base=Base(self.driver)
+
+		self.base=Base("chrome")
 		self.base.open("http://www.baidu.com")
 		self.base.max_window()
 
@@ -18,7 +20,7 @@ class BaiduSet(unittest.TestCase):
 		self.base.click_element('class=>prefpanelgo')
 
 	def tearDown(self):
-		self.driver.quit()
+		self.base.quit()
 
 if __name__ == '__main__':
 	unittest.main()
