@@ -57,7 +57,7 @@ class Base():
 	def wait_element(self,css):
 		'''等待元素'''
 
-		for i in range(30):
+		for i in range(60):
 			try:
 				element=self.get_element(css)
 
@@ -66,6 +66,8 @@ class Base():
 			except:
 				pass
 			sleep(1)
+		else:
+			raise NameError("Please enter the correct targeting elements")
 
 	def click_element(self,css):
 		'''元素点击'''
